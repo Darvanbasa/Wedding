@@ -142,83 +142,123 @@ body {
 .nav-arrow.right { right:-18px; }
 
 /* Timeline container - always one row */
+/* Timeline container */
 .timeline {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 8px;
+    display: flex !important;
+    flex-wrap: nowrap !important; /* Keep in one line */
+    gap: 10px;
+    width: 100%;
+    padding: 10px 5px;
+    justify-content: space-between; /* Distribute boxes evenly */
+    scroll-snap-type: none; /* Remove snapping since no scrolling */
+    overflow-x: visible; /* Allow shrinking instead of scroll */
 }
-/* Hide scrollbar */
-.timeline::-webkit-scrollbar { display: none; }
-.timeline { -ms-overflow-style: none; scrollbar-width: none; }
 
 /* Timeline boxes */
 .timeline-box {
-    flex: 0 0 auto;
-    min-width: 80px;
+    flex: 1 1 0; /* Grow and shrink equally */
+    min-width: 0; /* Prevent overflow */
     text-align: center;
-    padding: 10px 8px;
+    padding: 10px 5px;
     border-radius: 12px;
-    background: rgba(92,61,46,0.08);
+    background: rgba(92, 61, 46, 0.08);
     transition: transform 0.3s, background 0.3s;
-}
-.timeline-box:hover {
-    transform: translateY(-6px);
-    background: rgba(92,61,46,0.15);
-}
-.timeline-time { font-weight:600; color:#5c3d2e; font-size:0.95rem; }
-.timeline-event { font-weight:500; font-size:0.85rem; margin-top:4px; color:#7a5230; }
-
-
-
-
-/* Event images */
-.event-images {
-    display: flex;
-    justify-content: space-between;
-    gap: 8px;
-    width: 100%;
-}
-
-.event-image {
-    width: 50%;
-    padding: 6px;
-    border-radius: 16px;
-    overflow: hidden;
-    background: #f5e6d3;
-    border: 2px solid #a47551;
-    box-shadow: 0 6px 18px rgba(92,61,46,0.15);
     box-sizing: border-box;
 }
-.event-image:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(92,61,46,0.25);
+
+.timeline-time { 
+    font-weight: 700; 
+    color: var(--primary-brown); 
+    font-size: 0.85rem; 
+    display: block;
 }
-.event-img { width:100%; max-height:120px; object-fit:cover; display:block; border-bottom:2px solid #a47551; }
-.event-title { font-weight:700; font-size:0.95rem; color:var(--primary-brown); margin:0.3rem 0; }
-.event-location { font-size:0.75rem; color:var(--dark-brown); margin-top:0.3rem; line-height:1.1rem; }
-.event-location a { color: var(--primary-brown); text-decoration: underline; font-weight:600; transition: color 0.3s ease; }
-.event-location a:hover { color: var(--soft-brown); }
 
+.timeline-event { 
+    font-weight: 500; 
+    font-size: 0.75rem; 
+    margin-top: 4px; 
+    color: var(--dark-brown); 
+    white-space: nowrap;
+}
+
+/* Hover effect for desktop */
+.timeline-box:hover {
+    transform: translateY(-3px);
+    background: rgba(92, 61, 46, 0.15);
+}
+
+/* Mobile adjustments: scale font a bit smaller */
 @media (max-width:480px){
-    .event-images {
-        gap: 6px;
-    }
+    .timeline-time { font-size: 0.75rem; }
+    .timeline-event { font-size: 0.65rem; }
+    .timeline-box { padding: 6px; }
+}
 
-    .event-image {
-        width: 50%;
-    }
 
-    .event-img {
-        width: 100%;
-        height: auto;
-        max-height: 100px;
-        object-fit: cover;
-    }
+
+/* Ensure the parent page doesn't squish the content */
+.page {
+    width: 100% !important;
+    min-width: 100% !important;
+    overflow: hidden;
+}
+
+/* The Container - Locked into 2 columns */
+.event-images {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important; /* Forces two equal halves */
+    gap: 8px !important;
+    width: 100% !important;
+    margin: 10px 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* The Individual Card */
+.event-image {
+    background: #f5e6d3 !important;
+    border: 1.5px solid #a47551 !important;
+    border-radius: 12px !important;
+    padding: 5px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    min-width: 0 !important; /* Prevents internal text from pushing the box out */
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* The Image - Forced to fit */
+.event-img {
+    width: 100% !important;
+    height: 80px !important; /* Fixed height for mobile */
+    object-fit: cover !important;
+    border-radius: 6px !important;
+    margin-bottom: 5px !important;
+}
+
+/* Prevent text from breaking the layout */
+.event-title {
+    font-size: 0.8rem !important;
+    font-weight: 700 !important;
+    width: 100% !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.event-location {
+    font-size: 0.6rem !important;
+    line-height: 1.2 !important;
+    width: 100% !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+}
+
+/* Fix the Google Maps link so it doesn't stay on one long line */
+.event-location a {
+    display: block !important;
+    word-break: break-all !important; 
+    font-size: 0.55rem !important;
 }
 
 /* Entourage Page */

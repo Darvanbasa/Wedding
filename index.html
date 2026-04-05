@@ -6,7 +6,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
 <style>
 :root {
     --primary-brown: #5c3d2e;
@@ -88,19 +92,162 @@ body {
 
 /* Typography */
 .title { 
-    font-size: 1.05rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    font-family: 'Allura', cursive;   /* Use Allura */
+    font-weight: 700;                 /* Bold version (simulated if font doesn't have bold) */
+    letter-spacing: 1.5px;              /* Slight spacing for readability */
+    text-transform: none;             /* Keep normal case, scripts look better */
+	font-size: 2rem;
     color: var(--soft-brown);
-    margin-bottom: 1.2rem;
 }
+
 .names { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--primary-brown); }
 .ampersand { display:block; font-size:1.2rem; margin:0.3rem 0; color: var(--dark-brown); }
 .divider { margin: 1.5rem auto; width: 80px; height: 1px; background: linear-gradient(to right, transparent, var(--soft-brown), transparent); }
 .venue, .venuee { margin-top:1rem; font-size:0.9rem; line-height:1.5; color: var(--light-brown); }
 .venue strong { display:block; font-size:1.05rem; color: var(--primary-brown); }
-.message { margin-top:1rem; font-style:italic; color:var(--light-brown); line-height:1.5; }
+.message { margin-top:1rem; font-style:italic; color:var(--light-brown); line-height:1.5; font-size: .8rem; }
+
+.image-text-row {
+    display: flex;
+    gap: 1rem; /* spacing between image and text */
+    margin-top: 1.5rem;
+    flex-wrap: wrap; /* ensures it wraps on mobile */
+}
+
+.image-column {
+    flex: 1 1 45%; /* image takes ~45% of row */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sample-image {
+    width: 100%;
+    max-width: 140px; /* adjust for your layout */
+    height: auto;
+    aspect-ratio: 9.37 / 13.12;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+}
+
+.text-column {
+    flex: 1 1 50%; /* text takes ~50% */
+    display: flex;
+    align-items: center; /* vertically center text next to image */
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: var(--light-brown);
+}
+
+/* Smaller image */
+.sample-image-small {
+    width: 120px;  /* smaller than before */
+    height: auto;
+    border-radius: 8px;
+    padding-left: 20px;
+    display: block;
+    margin: 0 auto;
+}
+
+.sample-image-small2 {
+    width: 145px;  /* smaller than before */
+    height: auto;
+    border-radius: 4px;
+    padding-left: 20px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Smaller list */
+.text-column ul.dress-guidelines-small {
+    list-style-type: disc;
+    padding-left: 1rem;
+    margin: 0;
+    font-size: 0.75rem; /* smaller text */
+    line-height: 1.3;
+    color: var(--light-brown);
+}
+
+.text-column ul.dress-guidelines-small li {
+    margin-bottom: 0.4rem;
+}
+
+
+.fullpage-center::before,
+.fullpage-center::after {
+    content: "";
+    display: block;
+    width: 70%;
+    height: 1px;
+    margin: 10px auto;
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--soft-brown),
+        transparent
+    );
+    opacity: 0.5;
+}
+
+/* push content nicely between them */
+.fullpage-center {
+    gap: 1rem;
+}
+
+.fullpage-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* vertical center */
+    align-items: center;       /* horizontal center */
+    text-align: center;
+
+    height: 100%;              /* fill the page */
+    width: 100%;
+
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+}
+
+/* Top text */
+.intro-line {
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--light-brown);
+    line-height: 1.6;
+}
+
+/* Names (main focus) */
+.couple-names {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.6rem;
+    color: var(--primary-brown);
+    margin: 1.2rem 0;
+    line-height: 1.2;
+}
+
+/* Ampersand */
+.couple-names .amp {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    display: block;
+    margin: 0.2rem 0;
+}
+
+/* Bottom text */
+.invite-line {
+    font-size: 0.85rem;
+    color: var(--light-brown);
+    line-height: 1.6;
+    max-width: 280px;
+}
+
+/* Mobile tuning */
+@media (max-width:480px){
+    .couple-names { font-size: 2rem; }
+}
+
 
 /* RSVP */
 .rsvp-form { margin-top: 1.2rem; display:flex; flex-direction: column; gap:0.8rem; }
@@ -338,7 +485,7 @@ body {
 <div class="invitation">
 
   <!-- Background Image -->
-  <img src="bgg.jpg" class="bg-image">
+  <!--<img src="bgg.jpg" class="bg-image">-->
 
   <!-- Navigation Arrows -->
   <button class="nav-arrow left hidden" id="prevBtn">❮</button>
@@ -359,17 +506,38 @@ body {
         </select>
         <textarea name="message" placeholder="Message"></textarea>
         <button type="submit">Send</button>
-		<div class="music-toggle paused" id="musicToggle">
-    <svg viewBox="0 0 24 24"><path d="M12 3v10.55a4 4 0 1 0 2 3.45V7h4V3h-6z"/></svg>
-	</div>
+		<!--<div class="music-toggle paused" id="musicToggle">
+		<svg viewBox="0 0 24 24"><path d="M12 3v10.55a4 4 0 1 0 2 3.45V7h4V3h-6z"/></svg>
+		</div>-->
       </form>
     </div>
+	
+	<!-- PAGE 2 -->
+	<div class="page page2">
+	<div class="fullpage-center">
 
-    <!-- PAGE 2 -->
-    <div class="page page2">
+	<div class="intro-line">
+	By the grace of God and with the blessings of our families
+	</div>
+
+	<div class="couple-names">
+	Jafet Claridad
+	<span class="amp">&</span>
+	Aila Mae Alibin
+	</div>
+
+	<div class="invite-line">
+	We hope to see you as we celebrate the most important day of our lives.
+	</div>
+
+	</div>
+	</div>
+
+    <!-- PAGE 3 -->
+    <div class="page page3">
 	 <div class="palette">
       
-		<div class="title">WEDDING TIMELINE</div>
+		<div class="title">Wedding Timeline</div>
 		<div class="divider"></div>
 
 		<div class="timeline">
@@ -409,7 +577,7 @@ body {
 			<div class="event-title">Reception</div>
 			<img src="RECEPTION.jpg" alt="Reception" class="event-img">
 			<div class="event-location">
-			  Nature’s Village Resort, Talisay City <br>
+			  Nature’s Village Resort, Talisay<br>
 			  <a href="https://maps.app.goo.gl/9aBVqvbnceF4Yqbz5" target="_blank">View on Google Maps</a>
 			</div>
 		  </div>
@@ -417,11 +585,11 @@ body {
 		</div>
     </div>
 	
-	<!-- PAGE 3 -->
-	<div class="page page3">
+	<!-- PAGE 4 -->
+	<div class="page page4">
 	      <div class="palette">
 		<div class="title">Entourage</div>
-		<div class="divider"></div>
+		<!--<div class="divider"></div>-->
 
 		<!-- Parents -->
 		<div class="entourage-group">
@@ -440,7 +608,7 @@ body {
 		<!-- Principal Sponsors -->
 		<div class="entourage-group">
 			<div class="entourage-column">
-				<div class="entourage-heading">Principal Sponsors - Male</div>
+				<div class="entourage-heading">Principal Sponsors - Gents</div>
 				<div class="entourage-name">Jone Villareal</div>
 				<div class="entourage-name">Jonathan Sy</div>
 				<div class="entourage-name">Gerome Aledron</div>
@@ -454,7 +622,7 @@ body {
 				<div class="entourage-name">Juluis Wayn Teruel</div>
 			</div>
 			<div class="entourage-column">
-				<div class="entourage-heading">Principal Sponsors - Female</div>
+				<div class="entourage-heading">Principal Sponsors - Ladies</div>
 				<div class="entourage-name">Conception Villareal</div>
 				<div class="entourage-name">Charity Ariolla</div>
 				<div class="entourage-name">Narissa Chu</div>
@@ -468,32 +636,162 @@ body {
 		</div>
 		</div>	
 	</div>
+	
+	<!-- PAGE 5 -->
+	<div class="page page5">
+	      <div class="palette">
+		<div class="title">Secondary Sponsors</div>
+
+		<!-- Parents -->
+		<div class="entourage-group">
+			<div class="entourage-column">
+				<div class="entourage-heading">Best Man</div>
+				<div class="entourage-name">Clodmar Subaldo</div>
+			</div>
+			<div class="entourage-column">
+				<div class="entourage-heading">Maid of Honor</div>
+				<div class="entourage-name">Victoria Alibin</div>
+			</div>
+		</div>
+
+		<div class="entourage-group">
+			<div class="entourage-column">
+				<div class="entourage-heading">Candle</div>
+				<div class="entourage-name">Russel Mae Lumogdang</div>
+				<div class="entourage-name">Marlou Lumogdang</div>
+			</div>
+			<div class="entourage-column">
+				<div class="entourage-heading">Cord</div>
+				<div class="entourage-name">Dhyna Montero</div>
+				<div class="entourage-name">Kevin Montero</div>
+			</div>
+		</div>
 		
-	<!-- PAGE 4 -->
-    <div class="page page4">
-
-      <div class="palette">
-		<div class="title">Attire Color Guide</div>
-
-	<div class="title" style="font-size:0.7rem;">For Ladies</div>
-	<div class="palette-grid">
-    <div><div class="swatch" style="background:#eadcc8"></div><div class="label">#eadcc8</div></div>
-    <div><div class="swatch" style="background:#a59586"></div><div class="label">#a59586</div></div>
-    <div><div class="swatch" style="background:#d8bbab"></div><div class="label">#d8bbab</div></div>
+		<div class="entourage-group">
+			<div class="entourage-column">
+				<div class="entourage-heading">Veil</div>
+				<div class="entourage-name">Ailiez Joy Alibin</div>
+				<div class="entourage-name">Fefrey Faeldoña</div>
+			</div>
+			<div class="entourage-column">
+				<div class="entourage-heading">Ring Bearer</div>
+				<div class="entourage-name">Kaila Maureen Abkilan</div>
+			</div>
+		</div>
+		
+		<div class="entourage-group">
+			<div class="entourage-column">
+				<div class="entourage-heading">Bridesmaid</div>
+				<div class="entourage-name">Christine Joy Claridad</div>
+			</div>
+			<div class="entourage-column">
+				<div class="entourage-heading">Groomsmen</div>
+				<div class="entourage-name">Niko Claridad</div>
+			</div>
+		</div>
+		
+		<div class="entourage-group">
+			<div class="entourage-column">
+				<div class="entourage-heading">Coin bearer</div>
+				<div class="entourage-name">Caleb Ocampo</div>
+			</div>
+			<div class="entourage-column">
+				<div class="entourage-heading">Bible Bearer</div>
+				<div class="entourage-name">Erson Robert Samillano</div>
+			</div>
+		</div>
+		
+		</div>	
 	</div>
+		
+	<!-- PAGE 6 -->
+	<div class="page page6">
 
-	<div class="title" style="font-size:0.7rem; margin-top:1rem;">For Gentlemen</div>
-	<div class="palette-grid">
-    <div><div class="swatch" style="background:#e3caab"></div><div class="label">#e3caab</div></div>
-    <div><div class="swatch" style="background:#eccaa1"></div><div class="label">#eccaa1</div></div>
+	  <div class="palette">
+		<div class="title">Dress Code</div>
+
+		<div class="title" style="font-size:1.5rem;">For Principal Sponsors</div>
+		<div class="palette-grid">
+		  <div>
+			<div class="swatch" style="background:#e3caab"></div>
+			<div class="label">Beige</div>
+		  </div>
+		  <div>
+			<div class="swatch" style="background:#eccaa1"></div>
+			<div class="label">Cream</div>
+		  </div>
+		  <div>
+			<div class="swatch" style="background:#1c1c1c"></div>
+			<div class="label">Black</div>
+		  </div>
+		</div>
+
+		<!-- Image + Text Row -->
+		<!-- Image + List Row -->
+		<div class="image-text-row">
+			<div class="image-column">
+				<img src="sponsors.png" alt="Sample Dress" class="sample-image-small">
+			</div>
+				<div class="text-column">
+				<ul class="dress-guidelines-small">
+				<b>For Gents</b> <br>
+				Cream Barong Tagalog and Black Pants (Chinese collar is not allowed)<br><br>
+				<b>For Ladies</b> <br>
+				Beige Long Gown (see palette for reference)
+				</ul>
+				</div>
+		</div>
+		<div class="message">We would love to see you in your best and most comfortable formal attire suits in our motif</div>
+
+	  </div>
+
 	</div>
+	
+	<!-- PAGE 7 -->
+	<div class="page page7">
+
+	  <div class="palette">
+		<div class="title">Dress Code</div>
+
+		<div class="title" style="font-size:1.5rem;">For Guest</div>
+		<div class="palette-grid">
+		  <div>
+			<div class="swatch" style="background:#eadcc8"></div>
+			<div class="label">ivory </div>
+		  </div>
+		  <div>
+			<div class="swatch" style="background:#a59586"></div>
+			<div class="label">Taupe</div>
+		  </div>
+		  <div>
+			<div class="swatch" style="background:#d8bbab"></div>
+			<div class="label">soft beige</div>
+		  </div>
+		</div>
+
+		<!-- Image + Text Row -->
+		<!-- Image + List Row -->
+		<div class="image-text-row">
+			<div class="image-column">
+				<img src="guest.png" alt="Sample Dress" class="sample-image-small2">
+			</div>
+				<div class="text-column">
+				<ul class="dress-guidelines-small">
+				<b>For Gents</b> <br>
+				Cream or Ivory Barong Tagalog and Black Pants (Chinese collar is not allowed)<br><br>
+				<b>For Ladies</b> <br>
+				Beige or Taupe Long Gown (see palette for reference)
+				</ul>
+				</div>
+		</div>
+		
+		<div class="message">We would love to see you in your best and most comfortable formal attire suits in our motif</div>
+
+	  </div>
+
 	</div>
+	
 
-    <div class="venuee">We would love to see you in your best and most comfortable Formal Attire suits in our motif.</div>
-    <div class="venuee">Strictly no wearing of white, black bright red and other bright colors.</div>
-
-    
-    </div>
 
   </div>
 </div>

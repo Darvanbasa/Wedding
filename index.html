@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/the-seasons" rel="stylesheet">
 <style>
 :root {
     --primary-brown: #5c3d2e;
@@ -34,6 +35,8 @@ body {
     padding: 16px;
     color: var(--primary-brown);
 }
+
+
 
 /* Invitation card */
 .invitation {
@@ -96,7 +99,7 @@ body {
     font-weight: 700;                 /* Bold version (simulated if font doesn't have bold) */
     letter-spacing: 1.5px;              /* Slight spacing for readability */
     text-transform: none;             /* Keep normal case, scripts look better */
-	font-size: 2rem;
+	font-size: 2.2rem;
     color: var(--soft-brown);
 }
 
@@ -131,11 +134,14 @@ body {
     box-shadow: 0 6px 15px rgba(0,0,0,0.12);
 }
 
+
+
 .text-column {
     flex: 1 1 50%; /* text takes ~50% */
     display: flex;
     align-items: center; /* vertically center text next to image */
     font-size: 0.85rem;
+	font-family: "Cinzel";
     line-height: 1.4;
     color: var(--light-brown);
 }
@@ -172,6 +178,9 @@ body {
 .text-column ul.dress-guidelines-small li {
     margin-bottom: 0.4rem;
 }
+
+
+
 
 
 .fullpage-center::before,
@@ -445,8 +454,20 @@ body {
         margin-left: 3px;
     }
 }
-.entourage-heading { font-weight:700; font-size:0.95rem; margin-bottom:0.3rem; color: var(--primary-brown); }
-.entourage-name { font-size:0.85rem; color: var(--dark-brown); margin-left:5px; margin-bottom:0.15rem; }
+.entourage-heading { 
+    font-family: 'Great Vibes', serif;
+    font-weight: 600; /* adjust if needed */
+    font-size: 1.2rem; 
+    margin-bottom: 0.3rem; 
+    color: var(--primary-brown); 
+}
+.entourage-name { 
+	font-family: 'Cinzel', serif; 
+	font-size:0.85rem; 
+	color: var(--dark-brown); 
+	margin-left:5px; 
+	margin-bottom:0.15rem; 
+}
 
 /* Attire palette */
 .palette { margin-top:1.5rem; }
@@ -736,7 +757,7 @@ body {
 		<!-- Image + List Row -->
 		<div class="image-text-row">
 			<div class="image-column">
-				<img src="Sponsors.png" alt="Sample Dress" class="sample-image-small">
+				<img src="sponsors.png" alt="Sample Dress" class="sample-image-small">
 			</div>
 				<div class="text-column">
 				<ul class="dress-guidelines-small">
@@ -778,7 +799,7 @@ body {
 		<!-- Image + List Row -->
 		<div class="image-text-row">
 			<div class="image-column">
-				<img src="Guest.png" alt="Sample Dress" class="sample-image-small2">
+				<img src="guest.png" alt="Sample Dress" class="sample-image-small2">
 			</div>
 				<div class="text-column">
 				<ul class="dress-guidelines-small">
